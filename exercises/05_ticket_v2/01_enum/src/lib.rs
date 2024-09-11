@@ -10,7 +10,7 @@ struct Ticket {
     status: Status,
 }
 
-#[derive(Debug, PartialEq, Copy)]
+#[derive(Debug, PartialEq, Copy, Clone)]
 enum Status {
     // TODO: add the missing variants
     Done,

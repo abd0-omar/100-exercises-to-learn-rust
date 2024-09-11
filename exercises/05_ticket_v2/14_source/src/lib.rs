@@ -26,7 +26,7 @@ pub enum TicketNewError {
     #[error("Description cannot be longer than 500 bytes")]
     DescriptionTooLong,
     #[error("{0}")]
-    InvalidStatus(#[source] ParseStatusError),
+    InvalidStatus(#[from] ParseStatusError),
 }
 
 #[derive(Debug, PartialEq, Clone)]

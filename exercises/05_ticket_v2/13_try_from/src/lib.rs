@@ -10,7 +10,7 @@ enum Status {
 
 use thiserror;
 
-#[derive(thiserror::Error)]
+#[derive(thiserror::Error, Debug)]
 #[error("{}, is not a a valid status, a7oms, elfr7a", invalid_status)]
 struct ParseStatusError {
     invalid_status: String,
