@@ -15,7 +15,32 @@ pub fn fibonacci(n: u32) -> u32 {
     //
     // Hint: use a `Vec` to memoize the results you have already calculated
     // so that you don't have to recalculate them several times.
-    todo!()
+
+    let n = n as usize;
+
+    let mut memo = vec![None; i16::MAX as usize];
+    recursive_fibonacci(n, &mut memo)
+}
+
+pub fn recursive_fibonacci(n: usize, memo: &mut Vec<Option<u32>>) -> u32 {
+    // TODO: implement the `fibonacci` function
+    //
+    // Hint: use a `Vec` to memoize the results you have already calculated
+    // so that you don't have to recalculate them several times.
+    //
+    // we could if n < 0 panic!()
+    if n <= 1 {
+        return n as u32;
+    }
+
+    if let Some(ret) = memo[n] {
+        return ret;
+    }
+
+    let result = recursive_fibonacci(n - 1, memo) + recursive_fibonacci(n - 2, memo);
+    memo[n] = Some(result);
+
+    result
 }
 
 #[cfg(test)]
