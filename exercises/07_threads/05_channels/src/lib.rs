@@ -1,6 +1,7 @@
 use std::sync::mpsc::{Receiver, Sender};
 
 use data::{Ticket, TicketDraft};
+use store::TicketStore;
 
 pub mod data;
 pub mod store;
@@ -25,10 +26,12 @@ pub fn launch() -> Sender<Command> {
 pub fn server(receiver: Receiver<Command>) {
     loop {
         let the_reciever = receiver.recv().unwrap();
+        let mut ticket_store = TicketStore::new();
+
         match the_reciever {
             Command::Insert(ticket_draft) => {
-                sender.
-            },
+                ticket_store.add_ticket(ticket_draft);
+            }
         }
     }
 }

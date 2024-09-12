@@ -14,7 +14,7 @@ pub fn sum(v: Vec<i32>) -> i32 {
         let handle1 = scope.spawn(|| first_half.iter().sum::<i32>());
         let handle2 = scope.spawn(|| second_half.iter().sum::<i32>());
 
-        handle1.join.unwrap() + handle2.join().unwrap()
+        handle1.join().unwrap() + handle2.join().unwrap()
     });
 
     sum
