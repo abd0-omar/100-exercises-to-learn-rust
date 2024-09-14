@@ -8,3 +8,12 @@
 //
 // Use Rust's package registry, crates.io, to find the dependencies you need
 // (if any) to build this system.
+// async fn handler1() -> &'static str {
+//     "get ticket"
+// }
+// async fn handler2() -> &'static str {
+//     "make ticket"
+// }
+// async fn handler3() -> &'static str {
+//     "update patch ticket"
+// }

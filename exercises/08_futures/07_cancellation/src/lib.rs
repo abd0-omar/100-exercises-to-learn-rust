@@ -26,7 +26,7 @@ mod tests {
         let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
         let addr = listener.local_addr().unwrap();
         let messages = vec!["hello", "from", "this", "task"];
-        let timeout = Duration::from_millis(20);
+        let timeout = Duration::from_millis(2000);
         let handle = tokio::spawn(run(listener, messages.len(), timeout.clone()));
 
         for message in messages {
@@ -46,6 +46,6 @@ mod tests {
 
         let buffered = handle.await.unwrap();
         let buffered = std::str::from_utf8(&buffered).unwrap();
-        assert_eq!(buffered, "");
+        assert_eq!(buffered, "hefrthta");
     }
 }

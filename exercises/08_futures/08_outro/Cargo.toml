@@ -5,3 +5,7 @@ edition = "2021"
 
 [dependencies]
 tokio = { version = "1", features = ["full"] }
+axum = "0.7.5"
+
+[[bin]]
+name = "outro_08"
